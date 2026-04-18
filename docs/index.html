@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gpuswitch — GPU switcher for Intel Macs</title>
+    <meta
+      name="description"
+      content="Switch between integrated, discrete, and auto GPU on Intel Macs via pmset. Interactive TUI and headless CLI."
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav id="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="#"><span>gpu</span>switch</a>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#quickstart">Quick Start</a></li>
+          <li><a href="#cli">CLI</a></li>
+        </ul>
+        <a
+          class="nav-cta"
+          href="https://github.com/kud/gpuswitch-cli"
+          target="_blank"
+          rel="noopener"
+          >GitHub ↗</a
+        >
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+          <img class="hero-icon" src="../assets/icon.png" alt="gpuswitch icon" />
+          <div class="hero-badge"><span class="hero-badge-dot"></span> v0.1.0 · MIT</div>
+          <h1>gpuswitch</h1>
+          <p>
+            Switch between integrated, discrete, and auto GPU on Intel Macs. Interactive
+            TUI and scriptable CLI — no daemons, no config.
+          </p>
+          <div class="hero-ctas">
+            <a
+              class="btn btn-primary"
+              href="https://www.npmjs.com/package/@kud/gpuswitch-cli"
+              target="_blank"
+              rel="noopener"
+              >View on npm</a
+            >
+            <a
+              class="btn btn-ghost"
+              href="https://github.com/kud/gpuswitch-cli"
+              target="_blank"
+              rel="noopener"
+              >GitHub ↗</a
+            >
+          </div>
+          <div class="hero-command code-block">
+            <code>npm install -g @kud/gpuswitch-cli</code>
+            <button class="copy-btn" data-copy="npm install -g @kud/gpuswitch-cli">
+              Copy
+            </button>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-value">v0.1.0</span>
+              <div class="stat-label">Latest</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-value">6</span>
+              <div class="stat-label">Commands</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-value">Intel</span>
+              <div class="stat-label">Mac only</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-value">MIT</span>
+              <div class="stat-label">Licence</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="section-inner">
+          <span class="section-eyebrow reveal">Why gpuswitch</span>
+          <h2 class="reveal">Features</h2>
+          <p class="section-sub reveal">
+            Everything gSwitch did — minus the abandoned app, plus a terminal you already
+            have open.
+          </p>
+          <div class="features-grid">
+            <div class="feature-card reveal">
+              <div class="feature-icon">🖥</div>
+              <div class="feature-title">Integrated GPU Mode</div>
+              <p class="feature-desc">
+                Force the Intel iGPU for maximum battery life. Ideal for meetings,
+                writing, and long unplugged sessions.
+              </p>
+            </div>
+            <div class="feature-card reveal">
+              <div class="feature-icon">⚡</div>
+              <div class="feature-title">Discrete GPU Mode</div>
+              <p class="feature-desc">
+                Activate the dedicated dGPU for full graphics performance when you need it
+                — rendering, gaming, or external displays.
+              </p>
+            </div>
+            <div class="feature-card reveal">
+              <div class="feature-icon">🤖</div>
+              <div class="feature-title">Auto Mode</div>
+              <p class="feature-desc">
+                Restore macOS default behaviour, letting the system switch GPUs
+                dynamically based on workload demand.
+              </p>
+            </div>
+            <div class="feature-card reveal">
+              <div class="feature-icon">🎨</div>
+              <div class="feature-title">Interactive TUI</div>
+              <p class="feature-desc">
+                Arrow-key picker built with Ink and React. Shows your current mode at a
+                glance — pick and confirm with enter.
+              </p>
+            </div>
+            <div class="feature-card reveal">
+              <div class="feature-icon">🔋</div>
+              <div class="feature-title">Headless Subcommands</div>
+              <p class="feature-desc">
+                Scriptable <code>integrated|discrete|auto|status</code> commands for shell
+                scripts, Raycast, or CI automation.
+              </p>
+            </div>
+            <div class="feature-card reveal">
+              <div class="feature-icon">🛠</div>
+              <div class="feature-title">Zero Config</div>
+              <p class="feature-desc">
+                Thin wrapper around <code>pmset</code>. No daemons, no background
+                processes, no setup file. Works out of the box.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quickstart">
+        <div class="section-inner">
+          <span class="section-eyebrow reveal">Get going fast</span>
+          <h2 class="reveal">Quick Start</h2>
+          <p class="section-sub reveal">
+            Install once, then use either the interactive TUI or headless subcommands —
+            switching GPU modes requires sudo.
+          </p>
+          <div class="code-block reveal">
+            <pre><code><span class="comment"># 1. Install globally</span>
+<span class="cmd">$ npm install -g @kud/gpuswitch-cli</span>
+
+<span class="comment"># 2. Open the interactive TUI (arrow keys + enter)</span>
+<span class="cmd">$ gpuswitch</span>
+<span class="output">
+  GPU Mode
+  current: auto
+
+❯ integrated  integrated GPU only — best battery life
+  discrete     discrete GPU only — full performance
+  auto         let macOS decide automatically
+
+  ↑↓ navigate · enter apply · q quit</span>
+
+<span class="comment"># 3. Or go straight to a mode (prompts for sudo)</span>
+<span class="cmd">$ gpuswitch integrated</span>
+<span class="output">GPU mode set to: integrated</span>
+
+<span class="comment"># Check what's active</span>
+<span class="cmd">$ gpuswitch status</span>
+<span class="output">current GPU mode: integrated</span></code></pre>
+            <button class="copy-btn" data-copy="npm install -g @kud/gpuswitch-cli">
+              Copy install
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="cli">
+        <div class="section-inner">
+          <span class="section-eyebrow reveal">Commands</span>
+          <h2 class="reveal">CLI Reference</h2>
+          <p class="section-sub reveal">
+            Run without arguments for the interactive TUI, or pass a subcommand for
+            headless use in scripts and automation.
+          </p>
+          <div class="cli-list reveal">
+            <div class="cli-row">
+              <span class="cli-cmd">gpuswitch</span>
+              <span class="cli-desc"
+                >Open interactive TUI mode — navigate with ↑↓, confirm with enter</span
+              >
+            </div>
+            <div class="cli-row">
+              <span class="cli-cmd">gpuswitch integrated</span>
+              <span class="cli-desc"
+                >Switch to integrated GPU only — best for battery life</span
+              >
+            </div>
+            <div class="cli-row">
+              <span class="cli-cmd">gpuswitch discrete</span>
+              <span class="cli-desc"
+                >Switch to discrete GPU only — full graphics performance</span
+              >
+            </div>
+            <div class="cli-row">
+              <span class="cli-cmd">gpuswitch auto</span>
+              <span class="cli-desc">Let macOS manage GPU switching automatically</span>
+            </div>
+            <div class="cli-row">
+              <span class="cli-cmd">gpuswitch status</span>
+              <span class="cli-desc">Print the current GPU mode to stdout</span>
+            </div>
+            <div class="cli-row">
+              <span class="cli-cmd">gpuswitch --help</span>
+              <span class="cli-desc">Show usage and available commands</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-name">@kud/gpuswitch-cli</span>
+        <nav class="footer-links">
+          <a href="https://github.com/kud/gpuswitch-cli" target="_blank" rel="noopener"
+            >GitHub</a
+          >
+          <a
+            href="https://www.npmjs.com/package/@kud/gpuswitch-cli"
+            target="_blank"
+            rel="noopener"
+            >npm</a
+          >
+          <a
+            href="https://github.com/kud/gpuswitch-cli/blob/main/CHANGELOG.md"
+            target="_blank"
+            rel="noopener"
+            >Changelog</a
+          >
+        </nav>
+        <span class="footer-copy">MIT Licence</span>
+      </div>
+    </footer>
+
+    <script>
+      const nav = document.getElementById("nav")
+      const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 20)
+      window.addEventListener("scroll", onScroll, { passive: true })
+      onScroll()
+
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const text =
+            btn.dataset.copy ||
+            btn.closest(".hero-command")?.querySelector("code")?.textContent ||
+            ""
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = "Copied!"
+            btn.classList.add("copied")
+            setTimeout(() => {
+              btn.textContent = "Copy"
+              btn.classList.remove("copied")
+            }, 1800)
+          })
+        })
+      })
+
+      const observer = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible")
+          }),
+        { threshold: 0.07, rootMargin: "0px 0px -40px 0px" },
+      )
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el))
+    </script>
+  </body>
+</html>

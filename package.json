@@ -30,6 +30,7 @@
     "vitest": "4.1.4"
   },
   "license": "MIT",
+  "homepage": "https://kud.github.io/gpuswitch-cli",
   "engines": {
     "node": ">=20.0.0"
   },
