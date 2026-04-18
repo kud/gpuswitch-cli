@@ -1,6 +1,6 @@
 {
   "name": "@kud/gpuswitch-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Switch between integrated, discrete, and auto GPU on Intel Macs via pmset",
   "bin": {
