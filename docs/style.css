@@ -336,9 +336,13 @@ a:hover {
   transition: var(--trans);
   opacity: 0;
 }
-.code-block:hover .copy-btn,
-.hero-command .copy-btn {
+.code-block:hover .copy-btn {
   opacity: 1;
+}
+.hero-command .copy-btn {
+  position: static;
+  opacity: 1;
+  flex-shrink: 0;
 }
 .copy-btn:hover {
   background: var(--surface-2);
