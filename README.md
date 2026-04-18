@@ -67,7 +67,7 @@ gpuswitch auto         # let macOS decide
 gpuswitch status       # see what's active
 ```
 
-> Switching GPU mode requires sudo — you will be prompted for your password.
+> Switching GPU mode requires `sudo` — you will be prompted for your password.
 
 ---
 
