@@ -19,31 +19,15 @@
 
 ---
 
-Switch between integrated, discrete, and auto GPU on Intel Macs via `pmset` — a thin, scriptable wrapper with an interactive TUI.
+A thin, scriptable wrapper around macOS `pmset` for switching your Intel Mac's GPU — with an interactive TUI.
 
-## ✨ Features
-
-- 🖥 **Integrated GPU Mode** — force the Intel iGPU for maximum battery life on long unplugged sessions
-- ⚡ **Discrete GPU Mode** — activate the dedicated dGPU for full graphics performance when you need it
-- 🤖 **Auto Mode** — restore macOS default behaviour, letting the system switch GPUs dynamically
-- 🎨 **Interactive TUI** — arrow-key picker built with Ink/React, shows your current mode at a glance
-- 🔋 **Headless Subcommands** — scriptable `integrated|discrete|auto|status` for shell scripts and Raycast
-- 🛠 **Zero Config** — thin wrapper around `pmset`, no daemons, no background processes, no setup
-- 📦 **Typed & Modern** — strict TypeScript, ESM-only, built with tsup
-
-## 🚀 Install
+## Install
 
 ```bash
 npm install -g @kud/gpuswitch-cli
 ```
 
-## 📖 Documentation
-
-Full usage, options, and examples live on the docs site:
-
-**→ [kud.io/projects/gpuswitch-cli/docs](https://kud.io/projects/gpuswitch-cli/docs)**
-
-## 🔧 Development
+## Development
 
 ```bash
 git clone https://github.com/kud/gpuswitch-cli.git
@@ -53,6 +37,6 @@ npm run build
 node dist/index.js
 ```
 
-## License
+---
 
-MIT © [kud](https://github.com/kud)
+📚 **Full documentation → https://kud.io/projects/gpuswitch-cli/docs**
