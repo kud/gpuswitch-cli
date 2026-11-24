@@ -36,7 +36,7 @@
   },
   "homepage": "https://kud.io/projects/gpuswitch-cli",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22"
   },
   "dependencies": {
     "chalk": "5.6.2",
